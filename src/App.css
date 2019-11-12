@@ -1,22 +1,90 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-.App-logo {
-  height: 40vmin;
+.app{
+  background: #000000;
+  z-index: -1;
+  position: relative;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.headline{
+  margin-top: 30.67%;
+  margin-left: 19.58%;
+}
+.headline h1{
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13vh;
+  color: #FFAB40;
+}
+.sub-headline{
+  margin-top: -6vh;
+  margin-left: 20.58%;
+}
+.sub-headline h3{
+  font-family: 'Montserrat';
+  font-style: normal;
+  color:white;
+  font-weight: 500;
+  font-size: 4vh;
+}
+.leftside-home{
+  background: #2489A5;
+  height: 100vw;
+}
+.rightside-home{
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  position: relative;
+  z-index: -1;
+  height: 100vw;
+}
+.rightside-home-bg{
+  background-image: url('/bg-1.jpeg');
+  background-size: cover;
+  opacity: 0.6;
+  height: 100%;
+  z-index: 1;
+}
+.navbar-top{
+  position: absolute !important;
+  top: 0;
+  margin-left: 10%;
+  margin-top: 3%;
+  width: 50vw !important;
+  color: white;
+  z-index: 100;
+}
+.navbar-top-item{
+  position: relative;
+  font-family: 'Comfortaa';
+  font-style: normal;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.language{
+  top:0;
+  position: absolute;
+  z-index: 100;
+  margin-top: 40vh;
+  margin-left: 45vw;
 }
+
+.language-item{
+  color: white;
+}
+
+.language-vl{
+  background: #2489A5;
+  height: 5vw;
+  width: 0.2vw;
+  margin-left: 1.2vw;
+  z-index: 500;
+}
+
+/* @media only screen and (max-width: 100px) {
+  .navbar-top{
+    display: none;
+  }
+} */
