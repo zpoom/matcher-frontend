@@ -1,10 +1,11 @@
 import React from 'react';
-import LandingPageTop from '../components/LandingPageTop';
+import { LandingPageTop, FeaturedWorkshops } from '../components';
 import { Row } from 'antd';
 export default () => {
     return (
         <Row>
-            <LandingPageTop></LandingPageTop>
+            <LandingPageTop />
+            <FeaturedWorkshops />
         </Row>
     );
 }

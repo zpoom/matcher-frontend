@@ -6,10 +6,7 @@ import Language from './Language';
 
 export default () => {
     return (
-        <Row>
-            <head>
-                <meta name="viewport" content="width-device-width, initial-scale=1" />
-            </head>
+        <Row className="landing-page-top">
             <Col className="leftside-home" span={12}>
                 <div className="headline">
                     <h1>
@@ -30,7 +27,6 @@ export default () => {
                 <NavBar />
                 <Language />
             </Col>
-
         </Row>
     );
 }
