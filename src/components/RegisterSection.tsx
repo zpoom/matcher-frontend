@@ -14,11 +14,14 @@ export default () => {
             <img src="/participant.png" />
           </Row>
           <h3>for participants</h3>
+          <h4>book get e-ticket</h4>
         </Col>
         <Col xs={8}>
           <Row type="flex" justify="center">
             <img src="/owner.png" />
           </Row>
+          <h3>for workshop owner</h3>
+          <h4>create new workshop</h4>
         </Col>
       </Row>
     </Col>
