@@ -12,6 +12,11 @@
   z-index: -1;
   height: 100vh;
 }
+.footer {
+  background-color: #2489A5;
+  padding: 15px 0;
+  color: white;
+}
 .headline{
   margin-top: 30.67%;
   margin-left: 19.58%;
@@ -98,10 +103,21 @@
 .register-section h3 {
   color: #2489A5;
   font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+}
+.register-section h3:hover{
+  text-decoration: underline;
+}
+.register-section h4 {
+  color: white;
+  font-weight: 300;
+  font-size: 22px;
+  text-align: center;
 }
 
 .featured-workshop {
-  padding: 7em 6em 3em 6em;
+  padding: 7em 6em 5em 6em;
   font-family: 'Montserrat';
 }
 .featured-workshop h1 {
