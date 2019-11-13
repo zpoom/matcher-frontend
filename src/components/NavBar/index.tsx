@@ -10,10 +10,10 @@ export default () => {
                 <h3 className="navbar-top-item">Workshops</h3>
             </Col>
             <Col span={6}>
-                <h3 className="navbar-top-item">Register</h3>
+                <h3 className="navbar-top-item">Add New</h3>
             </Col>
             <Col span={6}>
-                <h3 className="navbar-top-item">Sign in</h3>
+                <h3 className="navbar-top-item">Manage</h3>
             </Col>
             <Col span={6}>
                 <h3 className="navbar-top-item">

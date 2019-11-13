@@ -1,6 +1,6 @@
 import React from 'react'
+import { Row, Col } from 'antd'
 import './index.css'
-
 
 interface WsInfo {
     wsName?: string,
@@ -12,10 +12,15 @@ export default ({
     wsLocation = "19 Fl, CU Innavation Hub, Chaloem Rajakumari 60 (Chamchuri 10)"
 }: WsInfo) => {
     return (
-        <div className="ws-calendar-card">
-            <p className="ws-category">CODING SKILLS</p>
-            <p className="ws-name">{wsName}</p>
-            <p className="ws-location">{wsLocation}</p>
-        </div>
+        <Row className="ws-heading-info">
+            <Col span={20}>
+                <p className="ws-category">CODING SKILLS</p>
+                <p className="ws-name">{wsName}</p>
+                <p className="ws-location">{wsLocation}</p>
+            </Col>
+            <Col span={4}>
+
+            </Col>
+        </Row>
     )
 }

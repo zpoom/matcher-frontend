@@ -1,3 +1,10 @@
+.ws-calendar-card {
+    box-shadow: 0px 4px 20px rgba(238, 238, 238, 0.1);
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+}
+
 .ws-day, .ws-month, .ws-time {
     font-size: 20px;
 }
