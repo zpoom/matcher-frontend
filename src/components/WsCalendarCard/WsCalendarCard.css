@@ -1,0 +1,12 @@
+.ws-day, .ws-month, .ws-time {
+    font-size: 20px;
+}
+
+.ws-date {
+    font-size: 72px;
+    font-weight: 400;
+}
+
+.ws-day, .ws-month {
+    font-weight: 500;
+}
