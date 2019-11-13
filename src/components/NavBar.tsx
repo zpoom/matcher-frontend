@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 
 export default () => {
     return (
-        <Row className="navbar-top" justify="center" type="flex">
+        <Row className="navbar-top" justify="space-around" type="flex">
             <Col span={6}>
                 <h3 className="navbar-top-item">Workshops</h3>
             </Col>
