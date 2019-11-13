@@ -1,0 +1,19 @@
+.language{
+  top:0;
+  position: absolute;
+  z-index: 100;
+  margin-top: 40vh;
+  margin-left: 45vw;
+}
+
+.language-item{
+  color: white;
+}
+
+.language-vl{
+  background: #2489A5;
+  height: 5vw;
+  width: 0.2vw;
+  margin-left: 1.2vw;
+  z-index: 500;
+}

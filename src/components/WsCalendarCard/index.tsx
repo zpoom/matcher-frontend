@@ -1,6 +1,5 @@
 import React from 'react'
-import './WsCalendarCard.css'
-
+import './index.css'
 
 interface DateInfo {
     day?: string,

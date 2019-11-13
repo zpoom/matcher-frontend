@@ -1,0 +1,30 @@
+.featured-workshop {
+  padding: 7em 6em 5em 6em;
+  font-family: 'Montserrat';
+}
+.featured-workshop h1 {
+  font-weight: 700;
+  font-size: 48px;
+  padding-bottom: 7px;
+  border-bottom: solid 5px #FFAB40;
+  width: 3.5em;
+}
+.featured-workshop a {
+  color: #2489A5;
+  font-size: 16px;
+}
+.featured-workshop .seemore {
+  margin: 48px 24px;
+  font-size: 24px;
+  color: black;
+  border-bottom: grey solid 2px;
+}
+.featured-workshop .doit {
+  font-family: Rubik;
+  font-size: 250px;
+  position: absolute;
+  top: -100px;
+  right: 0;
+  color: rgba(120, 226, 255, 0.12);
+  font-weight: 700;
+}

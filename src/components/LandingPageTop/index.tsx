@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
-import SearchIcon from '@material-ui/icons/Search';
-import NavBar from './NavBar';
+import React from 'react';
+import { NavBar, Language } from '..';
 import { Row, Col } from 'antd';
-import Language from './Language';
+import './index.css'
 
 export default () => {
     return (

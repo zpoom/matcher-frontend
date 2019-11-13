@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { WorkshopCard } from '.'
+import { WorkshopCard } from '..'
+import Button from '@material-ui/core/Button';
+import './index.css'
 
 const workshopTypes = ["Show All", "Coding Skill", "Creative", "Self Improvement", "Startup"]
 const dummyWorkshops = [
@@ -38,7 +40,7 @@ export default () => {
           <Row type="flex" justify="space-between">
             {
               workshopTypes.map(type =>
-                <Col><a className="type">{type}</a></Col>
+                <Col><Button href="#" className="type" type="link">{type}</Button></Col>
               )
             }
           </Row>
@@ -56,7 +58,7 @@ export default () => {
         }
       </Row>
       <Row type="flex" justify="end">
-        <a className="seemore">see more</a>
+        <p className="seemore">see more</p>
       </Row>
     </Col>
   </Row>

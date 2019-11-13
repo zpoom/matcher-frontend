@@ -1,7 +1,7 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import SearchIcon from '@material-ui/icons/Search';
 import { Row, Col } from 'antd';
+import './index.css'
 
 export default () => {
     return (

@@ -1,0 +1,39 @@
+.workshop-card {
+  background: black;
+  width: 540px;
+  height: 300px;
+  display: block;
+  border-radius: 20px;
+  transition: transform .2s;
+}
+
+.workshop-card:hover {
+  transform: scale(1.03);
+}
+
+.workshop-card-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 0.4;
+}
+
+.workshop-card-title {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  top: 27px;
+  left: 42px;
+  width: 80%;
+}
+
+.workshop-card-owner {
+  color: white;
+  position: absolute;
+  bottom: 37px;
+  left: 42px;
+  border-top: #2489A5 solid 2px;
+  width: 40%;
+  padding-top: 10px;
+  white-space: nowrap;
+}
