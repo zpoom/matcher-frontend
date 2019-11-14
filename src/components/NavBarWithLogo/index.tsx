@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 import { Row, Col } from 'antd'
+import { Link } from 'react-router-dom'
 
 import './index.css'
 
@@ -8,7 +9,9 @@ export default () => {
     return (
         <Row className="navbar-with-logo" justify="space-around" type="flex">
             <Col className="logo-text" span={14}>
-                <h5 className="navbar-item-logo">matcher</h5>
+                <Link to='/'>
+                    <h5 className="navbar-item-logo">matcher</h5>
+                </Link>
             </Col>
             <Col span={3}>
                 <p className="navbar-item">Workshops</p>

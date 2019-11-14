@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { LandingPage, WsDetailPage } from './pages';
+import { LandingPage, WsDetailPage, CreateWsPage } from './pages';
 import {
   BrowserRouter as Router,
   Switch,
