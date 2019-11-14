@@ -1,0 +1,12 @@
+.container {
+   margin: 2em 5em;
+   font-family: 'Montserrat';
+}
+
+.container input[type="text"] {
+  width: 500px;
+}
+
+.section {
+  margin: 1em 0;
+}

@@ -3,6 +3,7 @@ import { Row, Col } from 'antd'
 import { WorkshopCard } from '..'
 import Button from '@material-ui/core/Button';
 import './index.css'
+import { Link } from 'react-router-dom'
 
 const workshopTypes = ["Show All", "Coding Skill", "Creative", "Self Improvement", "Startup"]
 const dummyWorkshops = [
@@ -49,11 +50,13 @@ export default () => {
       <Row type="flex" justify="space-around">
         {
           dummyWorkshops.slice(0, 4).map(workshop => <Col style={{ marginTop: 47 }}>
-            <WorkshopCard 
-              title={workshop.name} 
-              ownerName={workshop.ownerName} 
-              backgroundImage={workshop.backgroundImage}
-            />
+            <Link to='/workshop/1'>
+              <WorkshopCard
+                title={workshop.name}
+                ownerName={workshop.ownerName}
+                backgroundImage={workshop.backgroundImage}
+              />
+            </Link>
           </Col>)
         }
       </Row>
