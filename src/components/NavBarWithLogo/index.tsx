@@ -7,8 +7,8 @@ import './index.css'
 export default () => {
     return (
         <Row className="navbar-with-logo" justify="space-around" type="flex">
-            <Col span={14}>
-                <p className="navbar-item logo-text">matcher</p>
+            <Col className="logo-text" span={14}>
+                <h5 className="navbar-item-logo">matcher</h5>
             </Col>
             <Col span={3}>
                 <p className="navbar-item">Workshops</p>

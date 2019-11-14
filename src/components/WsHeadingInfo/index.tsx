@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
 import './index.css'
+import RoomIcon from '@material-ui/icons/RoomOutlined';
 
 interface WsInfo {
     wsName?: string,
@@ -16,7 +17,10 @@ export default ({
             <Col span={20}>
                 <p className="ws-category">CODING SKILLS</p>
                 <p className="ws-name">{wsName}</p>
-                <p className="ws-location">{wsLocation}</p>
+                <div className="ws-location-ele">
+                    <RoomIcon className="ws-detail-location-icon"></RoomIcon>
+                    <p className="ws-location">{wsLocation}</p>
+                </div>
             </Col>
             <Col span={4}>
 

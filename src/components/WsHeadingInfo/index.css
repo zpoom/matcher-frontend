@@ -1,0 +1,28 @@
+.ws-heading-info {
+    margin-bottom: 60px;
+}
+
+.ws-category {
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.ws-name {
+    font-weight: 800;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.ws-location-ele {
+    display: flex;
+}
+
+.ws-location {
+    color: #2489A5;
+    margin-bottom: 5px;
+}
+
+.ws-detail-location-icon {
+    color: #EA3901;
+    margin-right: 8px;
+}

@@ -3,7 +3,12 @@ import { Row } from 'antd'
 import './index.css'
 
 export default () => {
-  return <Row type="flex" justify="center" className="footer">
-    © 2019 Matcher. All rights reserved.
-  </Row>
+  return (
+    <Row type="flex" className="footer">
+      
+      <p className="copyright-text">
+        © 2019 Matcher. All rights reserved.
+      </p>
+    </Row>
+  )
 }

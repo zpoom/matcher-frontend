@@ -1,5 +1,9 @@
 .footer {
   background-color: #2489A5;
-  padding: 15px 0;
+  padding: 15px 20px;
   color: white;
+}
+
+.copyright-text {
+  margin-left: auto;
 }

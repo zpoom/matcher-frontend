@@ -15,11 +15,11 @@ export default({
     return(
         <div className="ws-owner-info">
             <div className="ws-owner-img">
-                <img src={wsOwnerImg} alt="workshop img" className="ws-img"/>
+                <img src={wsOwnerImg} alt="workshop img"/>
             </div>
-            <div className="ws-owner-name">
-                <p>organized by</p>
-                <p>{wsOwnerName}</p>
+            <div className="ws-owner-inner">
+                <p className="organized-by-txt">organized by</p>
+                <p className="ws-owner-name">{wsOwnerName}</p>
             </div>
         </div>
     )
