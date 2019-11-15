@@ -10,3 +10,15 @@
 .section {
   margin: 1em 0;
 }
+
+.mydropzone{
+  display: flex;
+}
+
+.mydropzone div {
+  margin: auto;
+}
+
+.mydropzone-paragraph {
+  margin: auto;
+}

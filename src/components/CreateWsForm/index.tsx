@@ -8,6 +8,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import "./index.css"
 import { Row, Col } from 'antd'
 import Button from '@material-ui/core/Button';
+import { DropzoneArea } from 'material-ui-dropzone'
 
 interface WorkshopDetail {
   name: string,
@@ -66,6 +67,12 @@ export default () => {
             fullWidth
             value={value.description}
             onChange={handleChange('description')}
+          />
+        </Row>
+        <Row>
+          <DropzoneArea
+            dropzoneClass="mydropzone"
+            dropzoneParagraphClass="mydropzone-paragraph"
           />
         </Row>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
