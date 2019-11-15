@@ -30,6 +30,7 @@ const App: React.FC = () => {
         <div className="app">
           <Switch>
             <Route path='/workshop/:id' component={WsDetailPage} />
+            <Route path='/create' component={CreateWsPage} />
             <Route path='/' component={LandingPage} />
           </Switch>
         </div >

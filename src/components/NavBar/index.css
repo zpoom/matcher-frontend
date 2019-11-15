@@ -1,11 +1,11 @@
 .navbar-top {
   position: absolute !important;
   top: 0;
+  right: 0;
   padding-left: 15%;
   margin-top: 3%;
   width: 50vw !important;
   color: white;
-  z-index: 100;
 }
 
 .navbar-top-item {
