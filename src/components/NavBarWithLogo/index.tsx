@@ -17,7 +17,9 @@ export default () => {
                 <p className="navbar-item">Workshops</p>
             </Col>
             <Col span={3}>
-                <p className="navbar-item">Add new</p>
+                <Link to='/create'>
+                    <p className="navbar-item">Add new</p>
+                </Link>
             </Col>
             <Col span={3}>
                 <p className="navbar-item">Manage</p>

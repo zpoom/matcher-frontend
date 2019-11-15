@@ -1,25 +1,26 @@
 import React from 'react'
 import './index.css'
+import moment, { Moment } from 'moment'
 
 interface DateInfo {
-    day?: string,
-    date?: string,
-    month?: string,
-    time?: string
+    startDate?: Moment,
+    endDate?: Moment
 }
 
+const DAY_OF_WEEK = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+const MONTH = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
+    'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER']
+
 export default ({
-    day = "MONDAY",
-    date = "10",
-    month = "OCTOBER 19",
-    time = "16.00 - 18.00"
+    startDate = moment(),
+    endDate = moment()
 }: DateInfo) => {
     return (
         <div className="ws-calendar-card">
-            <p className="ws-day">{day}</p>
-            <p className="ws-date">{date}</p>
-            <p className="ws-month">{month}</p>
-            <p className="ws-time">{time}</p>
+            <p className="ws-day">{DAY_OF_WEEK[startDate.day()]}</p>
+            <p className="ws-date">{startDate.date()}</p>
+            <p className="ws-month">{MONTH[startDate.month()]} {startDate.format('YY')}</p>
+            <p className="ws-time">{startDate.format('HH:mm')} - {endDate.format('HH:mm')}</p>
         </div>
     )
 }
