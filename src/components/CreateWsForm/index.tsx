@@ -84,6 +84,7 @@ export default () => {
                 value={value.publishDate}
                 onChange={handleChange('publishDate')}
                 fullWidth
+                disablePast
               />
             </Col>
             <Col xs={11}>
@@ -93,6 +94,7 @@ export default () => {
                 value={value.deadlineDate}
                 onChange={handleChange('deadlineDate')}
                 fullWidth
+                disablePast
               />
             </Col>
           </Row>
@@ -104,6 +106,7 @@ export default () => {
                 value={value.startDate}
                 onChange={handleChange('startDate')}
                 fullWidth
+                disablePast
               />
             </Col>
             <Col xs={11}>
@@ -113,6 +116,7 @@ export default () => {
                 value={value.endDate}
                 onChange={handleChange('endDate')}
                 fullWidth
+                disablePast
               />
             </Col>
           </Row>
