@@ -9,37 +9,37 @@ import "./index.css"
 import { Row, Col } from 'antd'
 import Button from '@material-ui/core/Button'
 import { Uploader } from '..'
+import { createWorkshop } from '../../api/workshop'
 
 interface WorkshopDetail {
   name: string,
-  location: string,
-  description: string,
-  publishDate: Date,
-  deadlineDate: Date,
-  startDate: Date,
-  endDate: Date,
-  maxCap: number,
-  price: number,
+  place: string,
+  desc: string,
+  publish_time: Date,
+  deadline_time: Date,
+  start_time: Date,
+  end_time: Date,
+  max_cap: number,
+  cost: number,
   images: string[]
 }
 
 export default () => {
   const [value, setValue] = useState<WorkshopDetail>({
     name: '',
-    location: '',
-    description: '',
-    publishDate: new Date(),
-    deadlineDate: new Date(),
-    startDate: new Date(),
-    endDate: new Date(),
-    maxCap: 0,
-    price: 0,
+    place: '',
+    desc: '',
+    publish_time: new Date(),
+    deadline_time: new Date(),
+    start_time: new Date(),
+    end_time: new Date(),
+    max_cap: 0,
+    cost: 0,
     images: []
   })
 
   const handleChange = (key: string) => (newVal: any) => {
-    console.log(newVal)
-    if (key === 'maxCap' || key === 'price') {
+    if (key === 'max_cap' || key === 'cost') {
       setValue({ ...value, [key]: Math.max(0, newVal.target.value) })
     } else if (newVal.hasOwnProperty('target')) {
       setValue({ ...value, [key]: newVal.target.value })
@@ -48,8 +48,9 @@ export default () => {
     }
   }
 
-  const handleSubmit = () => {
-    console.log(value)
+  const handleSubmit = async () => {
+    await createWorkshop(value)
+    console.log('OK', value)
   }
 
   return <Row type="flex" justify="center" className="container">
@@ -60,20 +61,20 @@ export default () => {
           <TextField fullWidth label="Workshop Name" value={value.name} onChange={handleChange('name')} />
         </Row>
         <Row className="section">
-          <TextField fullWidth label="Workshop Location" value={value.location} onChange={handleChange('location')} />
+          <TextField fullWidth label="Workshop place" value={value.place} onChange={handleChange('place')} />
         </Row>
         <Row>
           <TextField
             id="outlined-multiline-flexible"
-            label="Description"
+            label="desc"
             multiline
             rowsMax="10"
             rows="3"
             margin="normal"
             variant="outlined"
             fullWidth
-            value={value.description}
-            onChange={handleChange('description')}
+            value={value.desc}
+            onChange={handleChange('desc')}
           />
         </Row>
         <Row>
@@ -85,8 +86,8 @@ export default () => {
               <DateTimePicker
                 margin="normal"
                 label="Publish Date"
-                value={value.publishDate}
-                onChange={handleChange('publishDate')}
+                value={value.publish_time}
+                onChange={handleChange('publish_time')}
                 fullWidth
                 disablePast
               />
@@ -95,8 +96,8 @@ export default () => {
               <DateTimePicker
                 margin="normal"
                 label="Deadline Date"
-                value={value.deadlineDate}
-                onChange={handleChange('deadlineDate')}
+                value={value.deadline_time}
+                onChange={handleChange('deadline_time')}
                 fullWidth
                 disablePast
               />
@@ -107,8 +108,8 @@ export default () => {
               <DateTimePicker
                 margin="normal"
                 label="Start Date"
-                value={value.startDate}
-                onChange={handleChange('startDate')}
+                value={value.start_time}
+                onChange={handleChange('start_time')}
                 fullWidth
                 disablePast
               />
@@ -117,8 +118,8 @@ export default () => {
               <DateTimePicker
                 margin="normal"
                 label="End Date"
-                value={value.endDate}
-                onChange={handleChange('endDate')}
+                value={value.end_time}
+                onChange={handleChange('end_time')}
                 fullWidth
                 disablePast
               />
@@ -131,18 +132,18 @@ export default () => {
               label="Max Capacity"
               type="number"
               margin="normal"
-              value={value.maxCap}
-              onChange={handleChange('maxCap')}
+              value={value.max_cap}
+              onChange={handleChange('max_cap')}
               fullWidth
             />
           </Col>
           <Col xs={11}>
             <TextField
-              label="Price (Baht)"
+              label="cost (Baht)"
               type="number"
               margin="normal"
-              value={value.price}
-              onChange={handleChange('price')}
+              value={value.cost}
+              onChange={handleChange('cost')}
               fullWidth
             />
           </Col>

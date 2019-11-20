@@ -5,13 +5,9 @@ import CustomUploadButton from 'react-firebase-file-uploader/lib/CustomUploadBut
 import LinearProgress from '@material-ui/core/LinearProgress';
 import './index.css'
 import { Row, Col } from 'antd'
+import { firebaseConfig } from '../../const'
 
-const config = {
-  apiKey: "AIzaSyCDGeYkkWBkaIeEIj2j9Di1-QIco2nNBX8",
-  authDomain: "matcher-api.firebaseapp.com",
-  storageBucket: "matcher-api.appspot.com"
-};
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 export default ({ onChange }) => {
   const [fnames, setFnames] = useState([])
