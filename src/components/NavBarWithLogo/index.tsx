@@ -22,7 +22,9 @@ export default () => {
                 </Link>
             </Col>
             <Col span={3}>
-                <p className="navbar-item">Manage</p>
+                <Link to='/manage'>
+                    <p className="navbar-item">Manage</p>
+                </Link>
             </Col>
             <Col span={1}>
                 <p className="navbar-item">

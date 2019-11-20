@@ -37,3 +37,11 @@
   padding-top: 10px;
   white-space: nowrap;
 }
+
+.delete-icon {
+  position: absolute;
+  top: 27px;
+  right: 35px;
+  color: white;
+  font-size: 20px;
+}
