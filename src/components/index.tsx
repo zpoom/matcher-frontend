@@ -11,6 +11,7 @@ import WsHeadingInfo from './WsHeadingInfo'
 import WsShowDetails from './WsShowDetails'
 import WsOwnerInfo from './WsOwnerInfo'
 import CreateWsForm from './CreateWsForm'
+import Uploader from './Uploader'
 
 export {
     LandingPageTop,
@@ -25,5 +26,6 @@ export {
     WsHeadingInfo,
     WsShowDetails,
     WsOwnerInfo,
-    CreateWsForm
+    CreateWsForm,
+    Uploader
 }

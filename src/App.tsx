@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { LandingPage, WsDetailPage, CreateWsPage } from './pages';
+import { LandingPage, WsDetailPage, CreateWsPage, ManageWsPage } from './pages';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,6 +31,7 @@ const App: React.FC = () => {
           <Switch>
             <Route path='/workshop/:id' component={WsDetailPage} />
             <Route path='/create' component={CreateWsPage} />
+            <Route path='/manage' component={ManageWsPage} />
             <Route path='/' component={LandingPage} />
           </Switch>
         </div >

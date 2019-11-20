@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
+import React, { useState } from 'react'
+import TextField from '@material-ui/core/TextField'
 import {
   MuiPickersUtilsProvider,
   DateTimePicker
-} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+} from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
 import "./index.css"
 import { Row, Col } from 'antd'
-import Button from '@material-ui/core/Button';
-import { DropzoneArea } from 'material-ui-dropzone'
+import Button from '@material-ui/core/Button'
+import { Uploader } from '..'
 
 interface WorkshopDetail {
   name: string,
@@ -19,7 +19,8 @@ interface WorkshopDetail {
   startDate: Date,
   endDate: Date,
   maxCap: number,
-  price: number
+  price: number,
+  images: string[]
 }
 
 export default () => {
@@ -32,10 +33,12 @@ export default () => {
     startDate: new Date(),
     endDate: new Date(),
     maxCap: 0,
-    price: 0
+    price: 0,
+    images: []
   })
 
   const handleChange = (key: string) => (newVal: any) => {
+    console.log(newVal)
     if (key === 'maxCap' || key === 'price') {
       setValue({ ...value, [key]: Math.max(0, newVal.target.value) })
     } else if (newVal.hasOwnProperty('target')) {
@@ -45,15 +48,19 @@ export default () => {
     }
   }
 
+  const handleSubmit = () => {
+    console.log(value)
+  }
+
   return <Row type="flex" justify="center" className="container">
     <Col xs={12}>
       <h1>Create New Workshop</h1>
       <form>
         <Row className="section">
-          <TextField required fullWidth label="Workshop Name" value={value.name} onChange={handleChange('name')} />
+          <TextField fullWidth label="Workshop Name" value={value.name} onChange={handleChange('name')} />
         </Row>
         <Row className="section">
-          <TextField required fullWidth label="Workshop Location" value={value.location} onChange={handleChange('location')} />
+          <TextField fullWidth label="Workshop Location" value={value.location} onChange={handleChange('location')} />
         </Row>
         <Row>
           <TextField
@@ -70,10 +77,7 @@ export default () => {
           />
         </Row>
         <Row>
-          <DropzoneArea
-            dropzoneClass="mydropzone"
-            dropzoneParagraphClass="mydropzone-paragraph"
-          />
+          <Uploader onChange={handleChange('images')} />
         </Row>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Row type="flex" justify="space-between">
@@ -140,7 +144,7 @@ export default () => {
           </Col>
         </Row>
         <Row type="flex" justify="end" className="section">
-          <Button variant="contained" size="large" color="primary">Create Workshop</Button>
+          <Button variant="contained" size="large" color="primary" onClick={handleSubmit}>Create Workshop</Button>
         </Row>
       </form>
     </Col>
