@@ -16,7 +16,9 @@ export default () => {
                 </Link>
             </Col>
             <Col span={6}>
-                <h3 className="navbar-top-item">Manage</h3>
+                <Link to='/manage'>
+                    <h3 className="navbar-top-item">Manage</h3>
+                </Link>
             </Col>
             <Col span={6}>
                 <h3 className="navbar-top-item">

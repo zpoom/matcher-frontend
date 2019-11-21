@@ -6,10 +6,11 @@ import {
 } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import "./index.css"
-import { Row, Col } from 'antd'
+import { Row, Col, message } from 'antd'
 import Button from '@material-ui/core/Button'
 import { Uploader } from '..'
 import { createWorkshop } from '../../api/workshop'
+import { withRouter } from "react-router-dom";
 
 interface WorkshopDetail {
   name: string,
@@ -24,7 +25,11 @@ interface WorkshopDetail {
   images: string[]
 }
 
-export default () => {
+interface FormProps {
+  history?: any
+}
+
+export default withRouter(({ history }: FormProps) => {
   const [value, setValue] = useState<WorkshopDetail>({
     name: '',
     place: '',
@@ -49,8 +54,14 @@ export default () => {
   }
 
   const handleSubmit = async () => {
-    await createWorkshop(value)
-    console.log('OK', value)
+    try {
+      await createWorkshop(value)
+      console.log('OK', value)
+      history.push('/manage')
+    } catch(err) {
+      message.error('Cannot create workshop. Please try again.')
+    }
+
   }
 
   return <Row type="flex" justify="center" className="container">
@@ -66,7 +77,7 @@ export default () => {
         <Row>
           <TextField
             id="outlined-multiline-flexible"
-            label="desc"
+            label="Description"
             multiline
             rowsMax="10"
             rows="3"
@@ -154,4 +165,4 @@ export default () => {
       </form>
     </Col>
   </Row>
-}
+})
