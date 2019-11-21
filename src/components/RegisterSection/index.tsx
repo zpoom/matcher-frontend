@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
 import './index.css'
+import { Link } from 'react-router-dom'
 
 export default () => {
   return <Row className="register-section">
@@ -21,7 +22,9 @@ export default () => {
           <Row type="flex" justify="center">
             <img src="/owner.png" alt="owner" />
           </Row>
-          <h3>for workshop owner</h3>
+            <Link to='/manage'>
+              <h3>for workshop owner</h3>
+            </Link>
           <h4>create new workshop</h4>
         </Col>
       </Row>
