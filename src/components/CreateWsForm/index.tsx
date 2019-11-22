@@ -25,7 +25,8 @@ interface WorkshopDetail {
 
 interface FormProps {
   init?: WorkshopDetail,
-  onSubmit?: any
+  onSubmit?: any,
+  isEdit?: any
 }
 
 const initDetail: WorkshopDetail = {
@@ -41,7 +42,7 @@ const initDetail: WorkshopDetail = {
   images: []
 }
 
-export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
+export default ({ init = initDetail, onSubmit = () => { }, isEdit = false }: FormProps) => {
   const [value, setValue] = useState<WorkshopDetail>(init)
 
   const handleChange = (key: string) => (newVal: any) => {
@@ -72,7 +73,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
 
   const handleSubmit = async () => {
     try {
-      onSubmit(value)
+      if (isEdit || validateDate()) onSubmit(value)
     } catch(err) {
       message.error('Cannot create workshop. Please try again.')
     }
@@ -87,10 +88,10 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
       <h1>Create New Workshop</h1>
       <form>
         <Row className="section">
-          <TextField fullWidth label="Workshop Name" value={value.name} onChange={handleChange('name')} />
+          <TextField defaultValue="-" fullWidth label="Workshop Name" value={value.name} onChange={handleChange('name')} />
         </Row>
         <Row className="section">
-          <TextField fullWidth label="Workshop place" value={value.place} onChange={handleChange('place')} />
+          <TextField defaultValue="-" fullWidth label="Workshop place" value={value.place} onChange={handleChange('place')} />
         </Row>
         <Row>
           <TextField
@@ -104,6 +105,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
             fullWidth
             value={value.desc}
             onChange={handleChange('desc')}
+            defaultValue="-"
           />
         </Row>
         <Row>
@@ -118,7 +120,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
                 value={value.publish_time}
                 onChange={handleChange('publish_time')}
                 fullWidth
-                disablePast
+                disablePast={!isEdit}
               />
             </Col>
             <Col xs={11}>
@@ -128,7 +130,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
                 value={value.deadline_time}
                 onChange={handleChange('deadline_time')}
                 fullWidth
-                disablePast
+                disablePast={!isEdit}
               />
             </Col>
           </Row>
@@ -140,7 +142,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
                 value={value.start_time}
                 onChange={handleChange('start_time')}
                 fullWidth
-                disablePast
+                disablePast={!isEdit}
               />
             </Col>
             <Col xs={11}>
@@ -150,7 +152,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
                 value={value.end_time}
                 onChange={handleChange('end_time')}
                 fullWidth
-                disablePast
+                disablePast={!isEdit}
               />
             </Col>
           </Row>
@@ -164,6 +166,7 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
               value={value.max_cap}
               onChange={handleChange('max_cap')}
               fullWidth
+              defaultValue={0}
             />
           </Col>
           <Col xs={11}>
@@ -174,11 +177,14 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
               value={value.cost}
               onChange={handleChange('cost')}
               fullWidth
+              defaultValue={0}
             />
           </Col>
         </Row>
         <Row type="flex" justify="end" className="section">
-          <Button variant="contained" size="large" color="primary" onClick={handleSubmit}>Create Workshop</Button>
+          <Button variant="contained" size="large" color="primary" onClick={handleSubmit}>
+            { isEdit ? 'Update' : 'Create Workshop' }
+          </Button>
         </Row>
       </form>
     </Col>

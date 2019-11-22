@@ -1,18 +1,16 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { CreateWsForm, NavBarWithLogo, Footer } from '../../components'
 import { upsertWorkshop } from '../../api/workshop'
-import { withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
-interface CreateWsProp {
-  history: any
-}
+export default () => {
+  const [finished, setFinished] = useState(false)
 
-export default withRouter(({ history }: CreateWsProp) => {
-  return <Fragment>
+  return !finished ? <Fragment>
     <NavBarWithLogo />
     <CreateWsForm onSubmit={(value: any) => {
-      upsertWorkshop(value).then(history.push('/manage'))
+      upsertWorkshop(value).then(() => setFinished(true))
     }} />
     <Footer />
-  </Fragment>
-})
+  </Fragment> : <Redirect to={{ pathname: '/manage', state: { msg: 'Created Workshop' } }} />
+}

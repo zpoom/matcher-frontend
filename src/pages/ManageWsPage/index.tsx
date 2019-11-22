@@ -1,17 +1,30 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { Row, Col } from 'antd'
+import { Row, Col, message } from 'antd'
 import { WorkshopCard, NavBarWithLogo } from '../../components'
 import './index.css'
 import { getAllWorkshops } from '../../api/workshop'
+import { withRouter } from 'react-router-dom'
 
-export default () => {
+interface ManageWsProps {
+  location?: any
+}
+
+export default withRouter(({ location }: ManageWsProps) => {
   const [workshops, setWorkshops] = useState<any>([])
 
   const fetchWorkshops = () => {
     getAllWorkshops().then(workshops => setWorkshops(workshops))
   }
 
-  useEffect(fetchWorkshops, [])
+  const handleDelete = () => {
+    fetchWorkshops()
+    message.success('Deleted Workshop')
+  }
+
+  useEffect(() => {
+    if (location.state) message.success(location.state.msg)
+    fetchWorkshops()
+  }, [location.state])
 
   return <Fragment>
     <NavBarWithLogo />
@@ -25,8 +38,8 @@ export default () => {
                 id={workshop.id} 
                 title={workshop.name} 
                 ownerName={workshop.owner_name} 
-                allowDelete 
-                onDeleted={fetchWorkshops} 
+                allowEdit
+                onDeleted={handleDelete} 
               />
             </Col>)
           }
@@ -34,4 +47,4 @@ export default () => {
       </Col>
     </Row>
   </Fragment>
-}
+})

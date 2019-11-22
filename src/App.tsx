@@ -5,7 +5,8 @@ import {
   WsDetailPage,
   CreateWsPage,
   ManageWsPage,
-  ViewWsPage
+  ViewWsPage,
+  EditWsPage
 } from './pages';
 import {
   BrowserRouter as Router,
@@ -39,6 +40,7 @@ const App: React.FC = () => {
             <Route path='/create' component={CreateWsPage} />
             <Route path='/manage' component={ManageWsPage} />
             <Route path='/workshop' component={ViewWsPage} />
+            <Route path='/edit/:id' component={EditWsPage} />
             <Route path='/' component={LandingPage} />
           </Switch>
         </div >
