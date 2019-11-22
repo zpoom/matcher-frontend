@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField'
 import {
   MuiPickersUtilsProvider,
@@ -9,8 +9,6 @@ import "./index.css"
 import { Row, Col, message } from 'antd'
 import Button from '@material-ui/core/Button'
 import { Uploader } from '..'
-import { createWorkshop } from '../../api/workshop'
-import { withRouter } from "react-router-dom";
 
 interface WorkshopDetail {
   name: string,
@@ -26,22 +24,25 @@ interface WorkshopDetail {
 }
 
 interface FormProps {
-  history?: any
+  init?: WorkshopDetail,
+  onSubmit?: any
 }
 
-export default withRouter(({ history }: FormProps) => {
-  const [value, setValue] = useState<WorkshopDetail>({
-    name: '',
-    place: '',
-    desc: '',
-    publish_time: new Date(),
-    deadline_time: new Date(),
-    start_time: new Date(),
-    end_time: new Date(),
-    max_cap: 0,
-    cost: 0,
-    images: []
-  })
+const initDetail: WorkshopDetail = {
+  name: '',
+  place: '',
+  desc: '',
+  publish_time: new Date(),
+  deadline_time: new Date(),
+  start_time: new Date(),
+  end_time: new Date(),
+  max_cap: 0,
+  cost: 0,
+  images: []
+}
+
+export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
+  const [value, setValue] = useState<WorkshopDetail>(init)
 
   const handleChange = (key: string) => (newVal: any) => {
     if (key === 'max_cap' || key === 'cost') {
@@ -55,14 +56,15 @@ export default withRouter(({ history }: FormProps) => {
 
   const handleSubmit = async () => {
     try {
-      await createWorkshop(value)
-      console.log('OK', value)
-      history.push('/manage')
+      onSubmit(value)
     } catch(err) {
       message.error('Cannot create workshop. Please try again.')
     }
-
   }
+
+  useEffect(() => {
+    setValue(init)
+  }, [init])
 
   return <Row type="flex" justify="center" className="container">
     <Col xs={12}>
@@ -165,4 +167,4 @@ export default withRouter(({ history }: FormProps) => {
       </form>
     </Col>
   </Row>
-})
+}
