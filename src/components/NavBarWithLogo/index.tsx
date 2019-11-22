@@ -14,7 +14,9 @@ export default () => {
                 </Link>
             </Col>
             <Col span={3}>
-                <p className="navbar-item">Workshops</p>
+                <Link to='/workshop'>
+                    <p className="navbar-item">Workshops</p>
+                </Link>
             </Col>
             <Col span={3}>
                 <Link to='/create'>
