@@ -54,6 +54,22 @@ export default ({ init = initDetail, onSubmit = () => { } }: FormProps) => {
     }
   }
 
+  const validateDate = () => {
+      if (value.deadline_time.getTime() <= value.publish_time.getTime()){
+        message.error('Deadline time must be later than Publish time')
+        return false
+      }
+      else if (value.start_time.getTime() <= value.deadline_time.getTime()){
+        message.error('Start time must be later than Deadline time')
+        return false
+      }
+      else if (value.end_time.getTime() <= value.start_time.getTime()){
+        message.error('End time must be later than Start time')
+        return false
+      }
+      return true
+  }
+
   const handleSubmit = async () => {
     try {
       onSubmit(value)
