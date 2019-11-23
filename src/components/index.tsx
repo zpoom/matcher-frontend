@@ -27,5 +27,5 @@ export {
     WsShowDetails,
     WsOwnerInfo,
     CreateWsForm,
-    Uploader
+    Uploader,
 }

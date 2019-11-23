@@ -11,7 +11,7 @@ firebase.initializeApp(firebaseConfig);
 
 export default ({ onChange }) => {
   const [fnames, setFnames] = useState([])
-  const [urls, setUrls] = useState([])
+  const [images, setImages] = useState([])
   const [uploading, setUploading] = useState(false)
 
   const handleUploadStart = () => setUploading(true)
@@ -27,8 +27,8 @@ export default ({ onChange }) => {
       .getDownloadURL()
       .then(downloadURL => {
         setFnames([...fnames, filename])
-        setUrls([...urls, downloadURL])
-        onChange([...urls, downloadURL])
+        setImages([...images, { img_url: downloadURL, alt_text: '', desc: '' }])
+        onChange([...images, { img_url: downloadURL, alt_text: '', desc: '' }])
         setUploading(false)
       })
   }
@@ -54,9 +54,9 @@ export default ({ onChange }) => {
     </Row>
     <Row>
       {
-        urls.map(url => 
+        images.map(image => 
         <Col xs={4}>
-          <img src={url} style={{ width: 100, height: 100 }} alt="" />
+          <img src={image.img_url} style={{ width: 100, height: 100 }} alt={image.alt_text || ""} />
         </Col>)
       }
     </Row>
