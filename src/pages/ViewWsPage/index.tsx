@@ -27,20 +27,21 @@ export default () => {
               variant="outlined"
               placeholder="Search..."
               fullWidth
-              onChange={e => setFilter(e.target.value)}
+              onChange={e => setFilter(e.target.value.toLowerCase())}
             />
           </Col>
         </Row>
         <Row type="flex" justify="space-around" style={{ marginBottom: 30 }}>
           {
             workshops
-              .filter((ws: any) => ws.name.includes(filter))
+              .filter((ws: any) => ws.name.toLowerCase().includes(filter))
               .map((workshop: any) =>
                 <Col style={{ marginTop: 47 }}>
                   <WorkshopCard
                     id={workshop.id}
                     title={workshop.name}
                     ownerName={workshop.owner_name}
+                    backgroundImage={workshop.thumbnail}
                   />
                 </Col>)
           }
