@@ -28,7 +28,7 @@ export default ({ match }: WsParam) => {
                 </Col>
                 <Col className="right-col" span={20}>
                     <WsHeadingInfo wsName={wsDetail.name} wsLocation={wsDetail.place} />
-                    <WsShowDetails wsDes={wsDetail.desc} />
+                    <WsShowDetails wsDes={wsDetail.desc} wsImg={wsDetail.images} />
                     <img src={defaultAgendaImg} alt="agenda-dummy" className="agenda-dummy"
                         style={{ maxWidth: '80%', margin: '50px 0 80px 0' }} />
                     <hr style={{ marginBottom: '30px', marginRight: '20vw' }} />

@@ -85,7 +85,7 @@ export default ({ init = initDetail, onSubmit = () => { }, isEdit = false }: For
 
   return <Row type="flex" justify="center" className="container">
     <Col xs={12}>
-      <h1>Create New Workshop</h1>
+      <h1>{ isEdit ? 'Update Workshop Detail' : 'Create New Workshop' }</h1>
       <form>
         <Row className="section">
           <TextField defaultValue="-" fullWidth label="Workshop Name" value={value.name} onChange={handleChange('name')} />
