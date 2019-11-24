@@ -5,5 +5,5 @@ export const firebaseConfig = {
 }
 
 // export const apiEndpoint = "https://us-central1-matcher-api.cloudfunctions.net/api" // For production
-export const apiEndpoint = "http://localhost:8080"
+export const apiEndpoint = process.env.API_ENDPOINT || "http://localhost:8080"
 export const apiEndpointOf = (path: string) => `${apiEndpoint}${path}`
