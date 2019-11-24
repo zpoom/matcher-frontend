@@ -4,6 +4,7 @@ export const firebaseConfig = {
   storageBucket: "matcher-api.appspot.com"
 }
 
-// export const apiEndpoint = "https://us-central1-matcher-api.cloudfunctions.net/api" // For production
-export const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || "http://localhost:8080"
+export const apiEndpoint = process.env.NODE_ENV === 'production' ?
+  "https://us-central1-matcher-api.cloudfunctions.net/api" : // For production
+  "http://localhost:8080" // For dev
 export const apiEndpointOf = (path: string) => `${apiEndpoint}${path}`
