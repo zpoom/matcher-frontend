@@ -29,4 +29,4 @@ jobs:
       env:
         PROJECT_NAME: matcher-api
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        API_ENDPOINT: https://us-central1-matcher-api.cloudfunctions.net/api
+        REACT_APP_API_ENDPOINT: https://us-central1-matcher-api.cloudfunctions.net/api
