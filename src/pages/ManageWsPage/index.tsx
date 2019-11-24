@@ -40,6 +40,7 @@ export default withRouter(({ location }: ManageWsProps) => {
                 ownerName={workshop.owner_name} 
                 allowEdit
                 onDeleted={handleDelete} 
+                backgroundImage={workshop.thumbnail ? workshop.thumbnail.img_url : undefined}
               />
             </Col>)
           }

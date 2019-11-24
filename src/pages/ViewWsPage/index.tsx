@@ -41,7 +41,7 @@ export default () => {
                     id={workshop.id}
                     title={workshop.name}
                     ownerName={workshop.owner_name}
-                    backgroundImage={workshop.thumbnail}
+                    backgroundImage={workshop.thumbnail ? workshop.thumbnail.img_url : undefined}
                   />
                 </Col>)
           }
