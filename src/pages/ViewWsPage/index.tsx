@@ -9,8 +9,13 @@ export default () => {
   const [workshops, setWorkshops] = useState<any>([])
   const [filter, setFilter] = useState('')
 
-  const fetchWorkshops = () => {
-    getAllWorkshops().then(workshops => setWorkshops(workshops))
+  const fetchWorkshops = (name?: string) => {
+    getAllWorkshops(name).then(workshops => setWorkshops(workshops))
+  }
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
+    fetchWorkshops(filter)
   }
 
   useEffect(fetchWorkshops, [])
@@ -22,19 +27,20 @@ export default () => {
         <h1>Workshops</h1>
         <Row type="flex">
           <Col xs={12}>
-            <TextField
-              label="Search"
-              variant="outlined"
-              placeholder="Search..."
-              fullWidth
-              onChange={e => setFilter(e.target.value.toLowerCase())}
-            />
+            <form onSubmit={handleSubmit}>
+              <TextField
+                label="Search"
+                variant="outlined"
+                placeholder="Search..."
+                fullWidth
+                onChange={e => setFilter(e.target.value)}
+              />
+            </form>
           </Col>
         </Row>
         <Row type="flex" justify="space-around" style={{ marginBottom: 30 }}>
           {
             workshops
-              .filter((ws: any) => ws.name.toLowerCase().includes(filter))
               .map((workshop: any) =>
                 <Col style={{ marginTop: 47 }}>
                   <WorkshopCard
